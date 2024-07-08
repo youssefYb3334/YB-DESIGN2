@@ -1,0 +1,215 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: sans-serif;
+    background: linear-gradient(to bottom, #9e0877, #542567);
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+}
+header .navbar {
+    width: 100%;
+    opacity: 0;
+    animation: to_bottom 1s ease forwards ;
+}
+header .navbar nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+    margin: auto;
+    align-items: center;
+    margin-top: 20px;
+}
+
+header .navbar nav ul {
+    display: flex;
+}
+
+header .navbar nav ul a {
+    margin-right: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+header .navbar nav ul a:hover {
+    color: #000000;
+}
+
+
+
+#logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;   
+} 
+
+.home {
+    position: relative;
+    height: 100vh;
+    background-image: url(./img/background.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    overflow: hidden;
+}
+
+.text-box {
+    width: 40%;
+}
+
+.text-box h1 {
+    color: #9e0877;
+    font-size: 80px;
+    animation: to_right 1s ease forwards 1.3s;
+}
+
+.text-box h1:nth-child(2) {
+    color: #000;
+    font-size: 60px;
+    animation-delay: 1.5s;
+}
+
+.text-box p {
+    margin: 40px 0;
+    font-size: 20px;
+    width: 80%;
+    color: #7e7e7e;
+    animation: to_right 1s ease forwards 1.7s;
+}
+
+.btn-box {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 22px;
+    border: 2px solid #9e0877;
+    background-color: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: to_right 1s ease forwards 1.9s;
+}
+
+.btn:hover,
+.btn:nth-child(2) {
+    color: #fff;
+    background-color: #9e0877;
+    box-shadow: 0 0 15px #9e0877;
+}
+
+.btn:nth-child(2):hover {
+    color: #000;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.person {
+    position: absolute;
+    height: 100%;
+    pointer-events: none;
+    right: 0;
+    animation: person 1s ease forwards;
+}
+
+.text-box *{
+    opacity: 0;
+}
+
+.text-box span {
+    opacity: 1;
+}
+
+@keyframes to_bottom {
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+@keyframes to_right {
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+@keyframes person {
+    0%{
+        opacity: 0;
+        transform: translate(15%, 15%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+
+}
+
+@keyframes starts_background {
+    0%{
+        background-position: 0 0;
+    }
+   100%{
+        background-position: calc(var(--width) * -1) var(--height);
+    }
+}
+@keyframes starts_opacity {
+    0%{
+        opacity: 0;
+    }
+   100%{
+        opacity: 1;
+    }
+}
+
+
+.starts {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: var(--width);
+    height: var(--height);
+    background-image: url(./img/stars.png);
+    background-size: 100% 100%;
+    background-position: 0 0;
+    opacity: 0;
+    animation: starts_background 20s linear infinite, starts_opacity 1s ease forwards 0.8s;
+}
